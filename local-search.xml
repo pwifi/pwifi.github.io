@@ -17,6 +17,19 @@
   
   
   <entry>
+    <title>WPA/WPA2无线密码破解原理</title>
+    <link href="/post/e2db8e97.html"/>
+    <url>/post/e2db8e97.html</url>
+    
+    <content type="html"><![CDATA[<h3 id="首先要抓包，这里推荐使用：无线安全审计工具"><a href="#首先要抓包，这里推荐使用：无线安全审计工具" class="headerlink" title="首先要抓包，这里推荐使用：无线安全审计工具"></a><strong>首先要抓包，这里推荐使用：无线安全审计工具</strong></h3><p><strong>抓包工具可以复制下面口令打开咸鱼自行购买</strong></p><figure class="highlight 1c"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><code class="hljs 1c">【闲鱼】https:<span class="hljs-comment">//m.tb.cn/h.5zfcKhB?tk=sknNWKPGWpT</span><br></code></pre></td></tr></table></figure><p>什么是握手包：wifi信号是加密的，如果你要连接无线路由器，就要给路由器发送一个请求，请求和无线路由器建立连接，这个请求就在一连串你要发送的数据包里，学名叫握手包，这个包里面包含了你发送过去的一个密码，但是这个密码是加密的。</p><p>所以我们要破解wifi我们首先要抓到这个包，再用电脑根据这个加密后的数据跑密码就行了。</p><p><a href="https://pwifi.github.io/post/35f17806.html">点击这里查看抓包演示</a></p><p><a href="https://pwifi.github.io/post/c7d23dcd.html">点击这里查看跑密码演示</a></p>]]></content>
+    
+    
+    
+  </entry>
+  
+  
+  
+  <entry>
     <title>跑包软件演示软件字典下载</title>
     <link href="/post/c7d23dcd.html"/>
     <url>/post/c7d23dcd.html</url>
