@@ -22,24 +22,20 @@
         }
       ]
     },
+   {
+  "name": "ESP32-C3 WiFi Penetration Tool",
+  "version": "1.0.0",
+  "builds": [
     {
       "chipFamily": "ESP32-C3",
-      "ota": {
-        "path": "26.5.1/esp-web-tools-example-esp32c3.ota.bin",
-        "md5": "774b95713fb9f6a4c3f29ef7145c8e2c",
-        "sha256": "b1986949b0a2dfe2762289612760df32103daa9cd78b2761aa511d0e537292fc",
-        "summary": "## What's Changed\r\n* Remove pico-2-w from esphome-web build by @jesserockz in https://github.com/esphome/firmware/pull/351\r\n\r\n\r\n**Full Changelog**: https://github.com/esphome/firmware/compare/26.5.0...26.5.1",
-        "release_url": "https://github.com/esphome/firmware/releases/tag/26.5.1"
-      },
       "parts": [
-        {
-          "path": "26.5.1/esp-web-tools-example-esp32c3.factory.bin",
-          "offset": 0,
-          "md5": "4509ed59534d49cf23f65afd8a5a04ea",
-          "sha256": "64d8d0f7a9e89f2a0a799aba0493fa4e694a627d21f6bd42370514f3fb14824c"
-        }
+        { "path": "bootloader.bin", "offset": 4096 },
+        { "path": "partition-table.bin", "offset": 32768 },
+        { "path": "esp32-wifi-penetration-tool.bin", "offset": 65536 }
       ]
-    },
+    }
+  ]
+},
     {
       "chipFamily": "ESP32-C6",
       "ota": {
