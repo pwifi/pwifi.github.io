@@ -1,0 +1,16 @@
+# robots.txt for pwifi.github.io
+# 允许所有搜索引擎抓取
+
+User-agent: *
+Allow: /
+
+# 禁止抓取的目录（可选，根据需要调整）
+# Disallow: /js/
+# Disallow: /css/
+# Disallow: /img/
+
+# Sitemap位置
+Sitemap: https://pwifi.github.io/sitemap.xml
+
+# 爬取延迟（秒），友好对待服务器
+Crawl-delay: 1
