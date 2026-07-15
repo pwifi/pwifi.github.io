@@ -1,28 +1,4 @@
 {
-  "name": "esphome.esp_web_tools_example",
-  "version": "26.5.1",
-  "home_assistant_domain": "esphome",
-  "new_install_prompt_erase": false,
-  "builds": [
-    {
-      "chipFamily": "ESP32",
-      "ota": {
-        "path": "26.5.1/esp-web-tools-example-esp32.ota.bin",
-        "md5": "d12d81bf381411d94525b30cd4e25bc5",
-        "sha256": "45c98ee88268cb02d23218341be880d00ff94ba5762a63ef433af41a8d2af503",
-        "summary": "## What's Changed\r\n* Remove pico-2-w from esphome-web build by @jesserockz in https://github.com/esphome/firmware/pull/351\r\n\r\n\r\n**Full Changelog**: https://github.com/esphome/firmware/compare/26.5.0...26.5.1",
-        "release_url": "https://github.com/esphome/firmware/releases/tag/26.5.1"
-      },
-      "parts": [
-        {
-          "path": "26.5.1/esp-web-tools-example-esp32.factory.bin",
-          "offset": 0,
-          "md5": "59a19e6f5488f0dfc2f07e6433ae54e8",
-          "sha256": "368812aeba816cfcd64e092aeea798d07573083313f5dd234ae78dc7d0d5c375"
-        }
-      ]
-    },
-   {
   "name": "ESP32-C3 WiFi Penetration Tool",
   "version": "1.0.0",
   "builds": [
@@ -32,80 +8,6 @@
         { "path": "bootloader.bin", "offset": 4096 },
         { "path": "partition-table.bin", "offset": 32768 },
         { "path": "esp32-wifi-penetration-tool.bin", "offset": 65536 }
-      ]
-    }
-  ]
-},
-    {
-      "chipFamily": "ESP32-C6",
-      "ota": {
-        "path": "26.5.1/esp-web-tools-example-esp32c6.ota.bin",
-        "md5": "9cffc254ec47aaf70a90e31f1f4dee4b",
-        "sha256": "93edd624104bc336dc9577198a2ef94d988243ea0f9eb6c25fe33887ff2b93fc",
-        "summary": "## What's Changed\r\n* Remove pico-2-w from esphome-web build by @jesserockz in https://github.com/esphome/firmware/pull/351\r\n\r\n\r\n**Full Changelog**: https://github.com/esphome/firmware/compare/26.5.0...26.5.1",
-        "release_url": "https://github.com/esphome/firmware/releases/tag/26.5.1"
-      },
-      "parts": [
-        {
-          "path": "26.5.1/esp-web-tools-example-esp32c6.factory.bin",
-          "offset": 0,
-          "md5": "14f34bcb8791e5d54836caf7e60dc6b0",
-          "sha256": "97a6988a4b04507cd497e479c8da0e47283b7dbfe3d83cab1efdfb0a1fba5f75"
-        }
-      ]
-    },
-    {
-      "chipFamily": "ESP32-S2",
-      "ota": {
-        "path": "26.5.1/esp-web-tools-example-esp32s2.ota.bin",
-        "md5": "629917800b7a567990ae1a1264c9a62a",
-        "sha256": "7377084d6be7d2528d6f0225179b996c790de0e467e0f089326b5ba1797f75d1",
-        "summary": "## What's Changed\r\n* Remove pico-2-w from esphome-web build by @jesserockz in https://github.com/esphome/firmware/pull/351\r\n\r\n\r\n**Full Changelog**: https://github.com/esphome/firmware/compare/26.5.0...26.5.1",
-        "release_url": "https://github.com/esphome/firmware/releases/tag/26.5.1"
-      },
-      "parts": [
-        {
-          "path": "26.5.1/esp-web-tools-example-esp32s2.factory.bin",
-          "offset": 0,
-          "md5": "b38bbabc9b9de615feed08a45aafd1cd",
-          "sha256": "14a98c31b28ef4ec2e4cea280ba1d075e820fcddb19135c1f9ad685ab555b82e"
-        }
-      ]
-    },
-    {
-      "chipFamily": "ESP32-S3",
-      "ota": {
-        "path": "26.5.1/esp-web-tools-example-esp32s3.ota.bin",
-        "md5": "29fc447e8bb86425d966f3fce3f87f21",
-        "sha256": "bdb593cf4ae27c667038983353e1d7171c47be73665c36843f4d43d31063da43",
-        "summary": "## What's Changed\r\n* Remove pico-2-w from esphome-web build by @jesserockz in https://github.com/esphome/firmware/pull/351\r\n\r\n\r\n**Full Changelog**: https://github.com/esphome/firmware/compare/26.5.0...26.5.1",
-        "release_url": "https://github.com/esphome/firmware/releases/tag/26.5.1"
-      },
-      "parts": [
-        {
-          "path": "26.5.1/esp-web-tools-example-esp32s3.factory.bin",
-          "offset": 0,
-          "md5": "66232d1dbba18a7154f8643993f04963",
-          "sha256": "656331e1614b29660f99c027821237a2a18e46890fd310855b1ed3d3d5a087a8"
-        }
-      ]
-    },
-    {
-      "chipFamily": "ESP8266",
-      "ota": {
-        "path": "26.5.1/esp-web-tools-example-esp8266.ota.bin",
-        "md5": "a07f6737e10f2d0f9313d0b428ab7fa0",
-        "sha256": "0748535ad1f22d4f114296c8e38dacad939d62ca7a2a450dee068baca7bdc6a6",
-        "summary": "## What's Changed\r\n* Remove pico-2-w from esphome-web build by @jesserockz in https://github.com/esphome/firmware/pull/351\r\n\r\n\r\n**Full Changelog**: https://github.com/esphome/firmware/compare/26.5.0...26.5.1",
-        "release_url": "https://github.com/esphome/firmware/releases/tag/26.5.1"
-      },
-      "parts": [
-        {
-          "path": "26.5.1/esp-web-tools-example-esp8266.factory.bin",
-          "offset": 0,
-          "md5": "a07f6737e10f2d0f9313d0b428ab7fa0",
-          "sha256": "0748535ad1f22d4f114296c8e38dacad939d62ca7a2a450dee068baca7bdc6a6"
-        }
       ]
     }
   ]
