@@ -70,14 +70,10 @@
       }
       a { color: #2a5298; }
     </style>
-    <script module>
-      import(
-        // In development we import locally.
-        window.location.hostname === "localhost"
-          ? "/dist/web/install-button.js"
-          : "https://unpkg.com/esp-web-tools/dist/web/install-button.js?module"
-      );
-    </script>
+    <script
+      type="module"
+      src="dist/web/install-button.js"
+    ></script>
   </head>
   <body>
     <div class="card">
@@ -86,7 +82,7 @@
 
       <div class="install-wrapper">
         <esp-web-install-button
-          manifest="https://pwifi.github.io//json/manifest.json"
+          manifest="https://pwifi.github.io/json/manifest.json"
         >
           <i slot="unsupported">
             您的浏览器不支持 Web Serial，请使用 Chrome 或 Edge 打开此页面。
