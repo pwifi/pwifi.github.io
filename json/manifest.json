@@ -1,5 +1,5 @@
 {
-  "name": "ESP32-C3 WiFi Penetration Tool",
+  "name": "无线安全审计工具",
   "version": "1.0.0",
   "builds": [
     {
