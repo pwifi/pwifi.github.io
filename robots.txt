@@ -8,6 +8,7 @@ Allow: /
 # Disallow: /js/
 # Disallow: /css/
 # Disallow: /img/
+# Disallow: /json/
 
 # Sitemap位置
 Sitemap: https://pwifi.github.io/sitemap.xml
