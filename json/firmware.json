@@ -1,7 +1,7 @@
 {
-  "version": "2.0",
-  "note": "新增在线固件更新功能",
-  "url": "https://pwifi.github.io/json/firmware_2.0.bin",
-  "size": 996448,
-  "sha256": "9444ee119d022f2812077e2ba963e9419c15e58c6d4e898640295b99efa87101"
+  "version": "2.1",
+  "note": "精简更新设置界面，单一检查更新按钮",
+  "url": "https://pwifi.github.io/json/firmware_2.1.bin",
+  "size": 996400,
+  "sha256": "d92bfce8adf4ccaaf30c0ad42dc13e5c709f1f2783ec4a19cd337b3a8417591d"
 }
