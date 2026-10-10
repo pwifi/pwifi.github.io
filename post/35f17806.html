@@ -135,5 +135,41 @@
       toTop.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
     })();
   </script>
+  <!-- 悬浮:下单 / 售后 -->
+  <div class="support-fab">
+    <div class="support-panel" id="supportPanel" hidden>
+      <div class="support-head">
+        <b>微信下单 · QQ 售后</b>
+        <button class="support-close" id="supportClose" aria-label="关闭">×</button>
+      </div>
+      <div class="support-qr-grid">
+        <div class="support-qr">
+          <span class="qr-img"><img src="/img/by-qr.png" alt="微信扫码下单二维码" loading="lazy"></span>
+          <b>微信下单</b>
+          <span class="qr-tip">微信扫一扫 · 快捷下单</span>
+        </div>
+        <div class="support-qr">
+          <span class="qr-img"><img src="/img/shouhou-qr.png" alt="QQ 售后好友二维码" loading="lazy"></span>
+          <b>QQ 售后</b>
+          <span class="qr-tip"><a class="support-link" target="_blank" rel="noopener" href="https://qm.qq.com/q/Zh5VGhH3A4">点此加好友</a> 或扫码</span>
+        </div>
+      </div>
+    </div>
+    <button class="support-btn" id="supportBtn" aria-expanded="false" aria-controls="supportPanel">🎫 下单 / 售后</button>
+  </div>
+  <script>
+    (function () {
+      var b = document.getElementById('supportBtn'),
+          p = document.getElementById('supportPanel'),
+          c = document.getElementById('supportClose');
+      function set(open) { p.hidden = !open; b.setAttribute('aria-expanded', open); }
+      b.addEventListener('click', function () { set(p.hidden); });
+      c.addEventListener('click', function () { set(false); });
+      document.addEventListener('click', function (e) {
+        if (!p.hidden && !p.contains(e.target) && !b.contains(e.target)) set(false);
+      });
+      document.addEventListener('keydown', function (e) { if (e.key === 'Escape') set(false); });
+    })();
+  </script>
 </body>
 </html>
