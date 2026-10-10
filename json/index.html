@@ -1,107 +1,87 @@
-<!doctype html>
-<html>
-  <head>
-    <meta charset="utf-8" />
-    <title>无线安全审计工具升级</title>
-    <meta
-      name="description"
-      content="设备一键升级。"
-    />
-    <meta name="viewport" content="width=device-width" />
-    <meta name="color-scheme" content="dark light" />
-    <style>
-      * { box-sizing: border-box; }
-      body {
-        font-family:
-          -apple-system, system-ui, BlinkMacSystemFont, "Segoe UI", Roboto,
-          Ubuntu, sans-serif;
-        margin: 0;
-        padding: 0;
-        min-height: 100vh;
-        line-height: 1.6;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: radial-gradient(circle at top, #1e3c72, #2a5298);
-      }
-      @media (prefers-color-scheme: light) {
-        body { background: radial-gradient(circle at top, #e0eafc, #cfdef3); }
-      }
-      .card {
-        background: rgba(255, 255, 255, 0.95);
-        color: #222;
-        max-width: 460px;
-        width: calc(100% - 32px);
-        padding: 40px 32px;
-        border-radius: 16px;
-        box-shadow: 0 20px 50px rgba(0, 0, 0, 0.25);
-        text-align: center;
-      }
-      @media (prefers-color-scheme: dark) {
-        .card { background: rgba(40, 44, 52, 0.95); color: #f5f5f5; }
-      }
-      .card h1 {
-        margin: 0 0 8px;
-        font-size: 1.6em;
-        font-weight: 700;
-      }
-      .card p {
-        margin: 0 0 28px;
-        color: #666;
-        font-size: 0.95em;
-      }
-      @media (prefers-color-scheme: dark) {
-        .card p { color: #aaa; }
-      }
-      .install-wrapper {
-        display: flex;
-        justify-content: center;
-        margin-bottom: 20px;
-      }
-      .tip {
-        margin-top: 24px;
-        padding-top: 24px;
-        border-top: 1px solid rgba(0, 0, 0, 0.1);
-        font-size: 0.85em;
-        color: #888;
-      }
-      @media (prefers-color-scheme: dark) {
-        .tip { border-top-color: rgba(255, 255, 255, 0.1); color: #777; }
-      }
-      a { color: #2a5298; }
-    </style>
-    <script
-      type="module"
-      src="dist/web/install-button.js"
-    ></script>
-  </head>
-  <body>
-    <div class="card">
-      <h1></h1>
-      <p>将设备连接到电脑，点击下方按钮即可开始烧录。</p>
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="无线安全审计工具固件在线升级：浏览器一键烧录，支持单频 / 双频两种版本，烧录地址统一 0x20000。">
+  <link rel="canonical" href="https://pwifi.github.io/json/">
+  <title>固件在线升级 - 无线安全审计</title>
+  <link rel="stylesheet" href="/css/site.css">
+  <script>
+      (function(c,l,a,r,i,t,y){
+          c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+          t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i+"?ref=bwt";
+          y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+      })(window, document, "clarity", "script", "waaczo49jq");
+  </script>
+  <script type="module" src="dist/web/install-button.js"></script>
+</head>
+<body>
+  <nav class="nav"><div class="nav-inner">
+    <a class="brand" href="/"><span class="brand-dot"></span><span>无线安全审计</span></a>
+    <div class="nav-links">
+      <a href="/">首页</a><a href="/post/35f17806.html">视频教程</a><a href="/post/tushijiaocheng.html">图文教程</a><a href="/post/e2db8e97.html">原理</a><a href="/post/5cf38bf9.html">hashcat</a><a href="/about/">关于</a><a class="nav-cta" href="/#flash">固件升级</a>
+    </div>
+  </div></nav>
 
-      <div class="install-wrapper">
-        <esp-web-install-button
-          manifest="https://pwifi.github.io/json/manifest.json"
-        >
-          <i slot="unsupported">
-            您的浏览器不支持 Web Serial，请使用 Chrome 或 Edge 打开此页面。
-          </i>
-        </esp-web-install-button>
-      </div>
+  <header class="page-hero">
+    <div class="inner wrap">
+      <div class="crumbs"><a href="/">首页</a> / 固件升级</div>
+      <h1>固件<span class="grad">在线升级</span></h1>
+      <p class="lead">无需安装驱动和工具，浏览器直接完成固件烧录。支持单频版（2.4G）/ 双频版（2.4G+5G），烧录地址统一为 0x20000。</p>
+    </div>
+  </header>
 
-      <div class="tip">
-        提示：需通过 HTTPS 访问，并使用支持 Web Serial 的浏览器。
+  <main>
+    <div class="wrap-narrow" style="padding: 24px 24px 80px;">
+      <div class="card reveal" style="text-align:center;">
+        <div style="font-size:2.4rem;">⚡</div>
+        <h2 style="margin:12px 0 6px; border:none; padding:0; font-size:1.3rem;">无线安全审计工具固件 v2.1</h2>
+        <p style="color: var(--text-dim); font-size: .95rem; margin-bottom: 26px;">将设备通过 Type-C 连接电脑，点击下方按钮，选择设备端口即可开始烧录。</p>
+
+        <div class="install-wrapper" style="display:flex; justify-content:center; margin-bottom: 8px;">
+          <esp-web-install-button manifest="https://pwifi.github.io/json/manifest.json">
+            <i slot="unsupported" style="font-style: normal; display:block; max-width: 380px; margin: 0 auto; padding: 14px 18px; border-radius: 12px; font-size: .9rem; color: #ffd9a0; background: rgba(251,191,36,.10); border: 1px solid rgba(251,191,36,.35);">
+              您的浏览器不支持 Web Serial，请使用 Chrome 或 Edge（桌面版）打开此页面。
+            </i>
+          </esp-web-install-button>
+        </div>
+
+        <div class="callout" style="margin-top: 26px; text-align: left;">
+          <b>升级步骤：</b><br>
+          1️⃣ 用 Type-C 数据线将设备连接电脑<br>
+          2️⃣ 点击「升级固件」按钮，首次使用需授权串口<br>
+          3️⃣ 选择设备端口，等待烧录完成（请勿断开设备）
+        </div>
+        <div class="callout" style="text-align: left; border-color: rgba(251,191,36,.35); background: rgba(251,191,36,.07);">
+          <b>提示：</b>需通过 HTTPS 访问并使用支持 Web Serial 的浏览器（Chrome / Edge）。
+        </div>
       </div>
     </div>
-    <script>
-      {
-        const search = new URLSearchParams(window.location.search);
-        if (search.has("manifest")) {
-          const button = document.querySelector("esp-web-install-button");
-          button.manifest = search.get("manifest");
-        }
+  </main>
+
+  <footer class="site-footer"><div class="wrap">
+    <div class="foot-links"><a href="/post/35f17806.html">视频教程</a><a href="/post/tushijiaocheng.html">图文教程</a><a href="/post/e2db8e97.html">破解原理</a><a href="/post/5cf38bf9.html">hashcat 笔记</a><a href="/json/">固件升级页</a><a href="/about/">关于</a></div>
+    <div>© 无线安全审计 · 仅限授权环境下的安全研究与学习使用</div>
+  </div></footer>
+  <button id="toTop" aria-label="回到顶部">↑</button>
+  <script>
+    (function () {
+      var search = new URLSearchParams(window.location.search);
+      if (search.has("manifest")) {
+        var button = document.querySelector("esp-web-install-button");
+        if (button) button.manifest = search.get("manifest");
       }
-    </script>
-  </body>
+      var io = new IntersectionObserver(function (es) {
+        es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); } });
+      }, { threshold: .12 });
+      document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
+      var t = document.getElementById('toTop');
+      window.addEventListener('scroll', function () { t.classList.toggle('show', window.scrollY > 400); });
+      t.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+    })();
+  </script>
+</body>
 </html>
