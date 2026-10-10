@@ -283,6 +283,45 @@
       .reveal { opacity: 1; transform: none; transition: none; }
       html { scroll-behavior: auto; }
     }
+
+    /* ---------- 悬浮:下单 / 售后 ---------- */
+    .support-fab { position: fixed; right: 26px; bottom: 30px; z-index: 95; }
+    .support-btn {
+      display: inline-flex; align-items: center; gap: 6px;
+      padding: 10px 18px; border-radius: 24px; border: 1px solid var(--accent-line);
+      background: var(--bg-soft); color: var(--text); font-size: 0.9rem; font-weight: 600;
+      cursor: pointer; transition: border-color .2s, color .2s;
+      box-shadow: 0 4px 16px rgba(0, 0, 0, 0.4);
+      font-family: inherit;
+    }
+    .support-btn:hover { border-color: var(--accent); color: var(--accent); }
+    .support-panel {
+      position: absolute; right: 0; bottom: 56px; width: 320px;
+      background: var(--card); border: 1px solid var(--card-border); border-radius: 12px;
+      padding: 18px; box-shadow: 0 14px 40px rgba(0, 0, 0, 0.5);
+    }
+    .support-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 14px; }
+    .support-head b { font-size: 0.95rem; }
+    .support-close {
+      background: none; border: none; color: var(--text-dim); font-size: 1.3rem;
+      line-height: 1; cursor: pointer; padding: 2px 6px;
+    }
+    .support-close:hover { color: var(--text); }
+    .support-qr-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .support-qr { text-align: center; }
+    .support-qr .qr-img {
+      display: block; background: #fff; border-radius: 8px;
+      padding: 6px; margin-bottom: 8px;
+    }
+    .support-qr .qr-img img { display: block; width: 100%; height: auto; }
+    .support-qr b { display: block; font-size: 0.88rem; }
+    .support-qr .qr-tip { display: block; font-size: 0.76rem; color: var(--text-dim); margin-top: 3px; }
+    .support-link { color: var(--accent); }
+    .support-link:hover { color: #ffbb1f; }
+    @media (max-width: 560px) {
+      .support-fab { right: 16px; bottom: 22px; }
+      .support-panel { width: min(320px, calc(100vw - 32px)); }
+    }
   </style>
 
   <script type="module" src="/json/dist/web/install-button.js"></script>
@@ -482,6 +521,45 @@
       <div>© 无线安全审计 · 仅限授权环境下的安全研究与学习使用</div>
     </div>
   </footer>
+
+  <!-- 悬浮:下单 / 售后 -->
+  <div class="support-fab">
+    <div class="support-panel" id="supportPanel" hidden>
+      <div class="support-head">
+        <b>微信下单 · QQ 售后</b>
+        <button class="support-close" id="supportClose" aria-label="关闭">×</button>
+      </div>
+      <div class="support-qr-grid">
+        <div class="support-qr">
+          <span class="qr-img"><img src="/img/by-qr.png" alt="微信扫码下单二维码" loading="lazy"></span>
+          <b>微信下单</b>
+          <span class="qr-tip">微信扫一扫 · 快捷下单</span>
+        </div>
+        <div class="support-qr">
+          <span class="qr-img"><img src="/img/shouhou-qr.png" alt="QQ 售后好友二维码" loading="lazy"></span>
+          <b>QQ 售后</b>
+          <span class="qr-tip"><a class="support-link" target="_blank" rel="noopener" href="https://qm.qq.com/q/Zh5VGhH3A4">点此加好友</a> 或扫码</span>
+        </div>
+      </div>
+    </div>
+    <button class="support-btn" id="supportBtn" aria-expanded="false" aria-controls="supportPanel">🎫 下单 / 售后</button>
+  </div>
+
+  <script>
+    // 悬浮下单/售后面板
+    (function () {
+      var b = document.getElementById('supportBtn'),
+          p = document.getElementById('supportPanel'),
+          c = document.getElementById('supportClose');
+      function set(open) { p.hidden = !open; b.setAttribute('aria-expanded', open); }
+      b.addEventListener('click', function () { set(p.hidden); });
+      c.addEventListener('click', function () { set(false); });
+      document.addEventListener('click', function (e) {
+        if (!p.hidden && !p.contains(e.target) && !b.contains(e.target)) set(false);
+      });
+      document.addEventListener('keydown', function (e) { if (e.key === 'Escape') set(false); });
+    })();
+  </script>
 
   <script>
     // 滚动渐入动画
