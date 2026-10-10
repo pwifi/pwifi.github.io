@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
+  <link rel="icon" href="/img/fluid.png">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="author" content="彼岸无舟">
+  <meta name="description" content="WiFi抓包图文分步教程：设备供电连接ManagementAP热点、连接192.168.4.1选定目标、等待自动抓包、下载握手包pcap文件，四步完成抓包。">
+  <meta name="keywords" content="wifi抓包图文教程,ManagementAP,192.168.4.1,握手包,pcap">
+  <link rel="canonical" href="https://pwifi.github.io/post/tushijiaocheng.html">
+  <meta property="og:type" content="article">
+  <meta property="og:title" content="抓包图文分步教程">
+  <meta property="og:url" content="https://pwifi.github.io/post/tushijiaocheng.html">
+  <meta property="og:site_name" content="无线安全审计">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:image" content="https://pwifi.github.io/imgs/tutorial/device-connect.png">
+  <title>图文分步教程 - 无线安全审计</title>
+  <link rel="stylesheet" href="/css/site.css">
+  <script>
+      (function(c,l,a,r,i,t,y){
+          c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+          t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i+"?ref=bwt";
+          y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+      })(window, document, "clarity", "script", "waaczo49jq");
+  </script>
+</head>
+<body>
+
+  <nav class="nav">
+    <div class="nav-inner">
+      <a class="brand" href="/"><span class="brand-dot"></span><span>无线安全审计</span></a>
+      <div class="nav-links">
+        <a href="/">首页</a>
+        <a href="/post/35f17806.html">视频教程</a>
+        <a href="/post/tushijiaocheng.html" class="active">图文教程</a>
+        <a href="/post/e2db8e97.html">原理</a>
+        <a href="/post/5cf38bf9.html">hashcat</a>
+        <a href="/about/">关于</a>
+        <a class="nav-cta" href="/#flash">固件升级</a>
+      </div>
+    </div>
+  </nav>
+
+  <header class="page-hero">
+    <div class="inner wrap">
+      <div class="crumbs"><a href="/">首页</a> / <a href="/post/35f17806.html">视频教程</a> / 图文教程</div>
+      <h1>抓包<span class="grad">图文分步教程</span></h1>
+      <p class="lead">四步完成抓包：供电连接 → 选定目标 → 等待抓包 → 下载握手包。更直观的演示请看<a class="link" style="color:#f0a500" href="/post/35f17806.html">视频教程</a>。</p>
+    </div>
+  </header>
+
+  <main>
+    <div class="wrap-narrow article">
+
+      <div class="callout reveal">
+        <b>提示：</b>抓包成功后需要跑字典破解，软件与字典下载见 <a class="link" href="/post/35f17806.html#downloads">视频教程页下载区</a>。
+      </div>
+
+      <div class="step-block reveal">
+        <div class="step-head"><span class="step-no">1</span><h2>设备供电并连接设备</h2></div>
+        <p>将设备type-c口接入手机充电器或充电宝，通电后将会发出名称为 <code>ManagementAP</code> 的热点，密码 <code>12345678</code>。这个热点就是使用者用来连接和控制设备的。</p>
+        <picture>
+          <source srcset="/imgs/tutorial/device-connect.webp" type="image/webp">
+          <source srcset="/imgs/tutorial/device-connect-small.png 300w, /imgs/tutorial/device-connect.png 600w, /imgs/tutorial/device-connect-large.png 1200w" sizes="(max-width: 768px) 100vw, 600px" type="image/png">
+          <img src="/imgs/tutorial/device-connect.png" alt="WiFi抓包设备连接示意图 - ManagementAP热点界面" loading="lazy" decoding="async">
+        </picture>
+      </div>
+
+      <div class="step-block reveal">
+        <div class="step-head"><span class="step-no">2</span><h2>连接热点选定目标开始抓包</h2></div>
+        <p>连接热点后，打开浏览器（最好使用chrome浏览器）输入 <code>192.168.4.1</code> 回车访问，点选目标AP。点击开始，时间默认就行，信号弱的可以适当增加时间。</p>
+        <picture>
+          <source srcset="/imgs/tutorial/target-settings.webp" type="image/webp">
+          <source srcset="/imgs/tutorial/target-settings-small.png 300w, /imgs/tutorial/target-settings.png 600w, /imgs/tutorial/target-settings-large.png 1200w" sizes="(max-width: 768px) 100vw, 600px" type="image/png">
+          <img src="/imgs/tutorial/target-settings.png" alt="抓包目标选择和参数设置界面截图" loading="lazy" decoding="async">
+        </picture>
+      </div>
+
+      <div class="step-block reveal">
+        <div class="step-head"><span class="step-no">3</span><h2>等待设备自动抓包</h2></div>
+        <p>等待设备运行（点击开始会断开热点，一般会自动连接或者手动连上热点，抓到包会显示下载按钮，可以立即下载或者等待计时结束获得更多握手数据）。</p>
+        <picture>
+          <source srcset="/imgs/tutorial/countdown.webp" type="image/webp">
+          <source srcset="/imgs/tutorial/countdown-small.png 200w, /imgs/tutorial/countdown.png 400w, /imgs/tutorial/countdown-large.png 800w" sizes="(max-width: 768px) 100vw, 400px" type="image/png">
+          <img src="/imgs/tutorial/countdown.png" alt="倒计时抓包进度显示界面" loading="lazy" decoding="async">
+        </picture>
+      </div>
+
+      <div class="step-block reveal">
+        <div class="step-head"><span class="step-no">4</span><h2>下载捕获到的握手包</h2></div>
+        <p>下载捕获到的握手包数据格式为pcap。没抓到不显示下载按钮，点新攻击再多试几次。3次都抓不到可能目标没人用，握手包要在有人用的时候才会有，可以过个时间段再抓。也可以把时间调长点再试试，一般不超过60秒。如果始终抓不到尝试pmkid捕获（时间默认10秒无需修改），或者仅监听模式时间设置0挂机抓包。</p>
+        <picture>
+          <source srcset="/imgs/tutorial/download-success.webp" type="image/webp">
+          <source srcset="/imgs/tutorial/download-success-small.png 250w, /imgs/tutorial/download-success.png 500w, /imgs/tutorial/download-success-large.png 1000w" sizes="(max-width: 768px) 100vw, 500px" type="image/png">
+          <img src="/imgs/tutorial/download-success.png" alt="握手包下载成功界面 - pcap文件格式" loading="lazy" decoding="async">
+        </picture>
+        <div class="callout">
+          <b>✅ 下一步：</b>抓到握手包后就是跑字典破解了，观看 <a class="link" href="/post/35f17806.html#电脑跑包演示">电脑/手机跑包演示视频</a>，软件字典在 <a class="link" href="/post/35f17806.html#downloads">下载区</a> 获取。
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="wrap">
+      <div class="foot-links">
+        <a href="/post/35f17806.html">视频教程</a>
+        <a href="/post/tushijiaocheng.html">图文教程</a>
+        <a href="/post/e2db8e97.html">破解原理</a>
+        <a href="/post/5cf38bf9.html">hashcat 笔记</a>
+        <a href="/json/">固件升级页</a>
+        <a href="/about/">关于</a>
+      </div>
+      <div>© 无线安全审计 · 仅限授权环境下的安全研究与学习使用</div>
+    </div>
+  </footer>
+
+  <button id="toTop" aria-label="回到顶部">↑</button>
+
+  <script>
+    (function () {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+        });
+      }, { threshold: 0.12 });
+      document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
+      var toTop = document.getElementById('toTop');
+      window.addEventListener('scroll', function () {
+        toTop.classList.toggle('show', window.scrollY > 400);
+      });
+      toTop.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
+    })();
+  </script>
+</body>
+</html>

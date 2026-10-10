@@ -1,9 +1,5 @@
-
-
 <!DOCTYPE html>
-<html lang="zh-CN" data-default-color-scheme=auto>
-
-
+<html lang="zh-CN">
 
 <head>
   <meta charset="UTF-8">
@@ -11,519 +7,496 @@
   <link rel="icon" href="/img/fluid.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, shrink-to-fit=no">
   <meta http-equiv="x-ua-compatible" content="ie=edge">
-  
-  <meta name="theme-color" content="#2f4154">
+  <meta name="theme-color" content="#131314">
   <meta name="author" content="彼岸无舟">
-  <meta name="description" content="无线安全审计专业博客，提供WiFi安全检测工具教程、WPA/WPA2握手包抓取方法、hashcat密码破解指南、pmkid攻击技术等实战内容。2026最新版多功能抓包工具，支持隐藏网络、钓鱼攻击、无客户端捕获。">
-  <meta name="keywords" content="无线安全,WiFi安全审计,握手包抓取,WPA破解,hashcat,pmkid攻击,网络安全工具,渗透测试,WiFi密码破解,Kali Linux">
+  <meta name="description" content="无线安全审计专业博客，提供WiFi安全检测工具教程、WPA/WPA2握手包抓取方法、hashcat密码破解指南、pmkid攻击技术等实战内容。2026最新版多功能抓包工具，支持隐藏网络、钓鱼攻击、无客户端捕获。固件在线升级，支持单频 / 双频两种版本。">
+  <meta name="keywords" content="无线安全,WiFi安全审计,握手包抓取,WPA破解,hashcat,pmkid攻击,网络安全工具,渗透测试,WiFi密码破解,单频,双频,ESP32-C3,ESP32-C5,固件升级">
   <link rel="canonical" href="https://pwifi.github.io/">
-  
-    <meta property="og:type" content="website">
-<meta property="og:title" content="无线安全审计">
-<meta property="og:url" content="https://pwifi.github.io/index.html">
-<meta property="og:site_name" content="无线安全审计">
-<meta property="og:locale" content="zh_CN">
-<meta property="article:author" content="彼岸无舟">
-<meta name="twitter:card" content="summary_large_image">
-  
-  
-  
-  <title>无线安全审计</title>
 
-  <link  rel="stylesheet" href="https://lib.baomitu.com/twitter-bootstrap/4.6.1/css/bootstrap.min.css" />
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="无线安全审计">
+  <meta property="og:url" content="https://pwifi.github.io/">
+  <meta property="og:site_name" content="无线安全审计">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="article:author" content="彼岸无舟">
+  <meta name="twitter:card" content="summary_large_image">
 
+  <title>无线安全审计 — 一键在线升级固件</title>
 
-
-
-
-<!-- 主题依赖的图标库，不要自行修改 -->
-<!-- Do not modify the link that theme dependent icons -->
-
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1749284_hj8rtnfg7um.css">
-
-
-
-<link rel="stylesheet" href="//at.alicdn.com/t/font_1736178_lbnruvf0jn.css">
-
-
-<link  rel="stylesheet" href="/css/main.css" />
-
-
-  <link id="highlight-css" rel="stylesheet" href="/css/highlight.css" />
-  
-    <link id="highlight-css-dark" rel="stylesheet" href="/css/highlight-dark.css" />
-  
-
-
-<!-- Clarity tracking code for https://pwifi.github.io/ -->
-<script>
-    (function(c,l,a,r,i,t,y){
-        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i+"?ref=bwt";
-        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-    })(window, document, "clarity", "script", "waaczo49jq");
-</script>
-
-  <script id="fluid-configs">
-    var Fluid = window.Fluid || {};
-    Fluid.ctx = Object.assign({}, Fluid.ctx)
-    var CONFIG = {"hostname":"pwifi.github.io","root":"/","version":"1.9.7","typing":{"enable":true,"typeSpeed":70,"cursorChar":"_","loop":false,"scope":[]},"anchorjs":{"enable":true,"element":"h1,h2,h3,h4,h5,h6","placement":"left","visible":"hover","icon":""},"progressbar":{"enable":true,"height_px":3,"color":"#29d","options":{"showSpinner":false,"trickleSpeed":100}},"code_language":{"enable":true,"default":"TEXT"},"copy_btn":true,"image_caption":{"enable":true},"image_zoom":{"enable":true,"img_url_replace":["",""]},"toc":{"enable":true,"placement":"right","headingSelector":"h1,h2,h3,h4,h5,h6","collapseDepth":0},"lazyload":{"enable":true,"loading_img":"/img/loading.gif","onlypost":false,"offset_factor":2},"web_analytics":{"enable":false,"follow_dnt":true,"baidu":null,"google":{"measurement_id":null},"tencent":{"sid":null,"cid":null},"woyaola":null,"cnzz":null,"leancloud":{"app_id":null,"app_key":null,"server_url":null,"path":"window.location.pathname","ignore_local":false}},"search_path":"/local-search.xml","include_content_in_search":true};
-
-    if (CONFIG.web_analytics.follow_dnt) {
-      var dntVal = navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack;
-      Fluid.ctx.dnt = dntVal && (dntVal.startsWith('1') || dntVal.startsWith('yes') || dntVal.startsWith('on'));
-    }
+  <!-- Clarity tracking code for https://pwifi.github.io/ -->
+  <script>
+      (function(c,l,a,r,i,t,y){
+          c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+          t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i+"?ref=bwt";
+          y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+      })(window, document, "clarity", "script", "waaczo49jq");
   </script>
-  <script  src="/js/utils.js" ></script>
-  <script  src="/js/color-schema.js" ></script>
-  
 
-  
-<meta name="generator" content="Hexo 7.1.1">
-
-<!-- 结构化数据 Schema.org JSON-LD -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "WebSite",
-  "name": "无线安全审计",
-  "url": "https://pwifi.github.io/",
-  "description": "无线安全审计专业博客，提供WiFi安全检测工具教程、WPA/WPA2握手包抓取方法、hashcat密码破解指南、PMKID攻击技术等实战内容。",
-  "author": {
-    "@type": "Person",
-    "name": "彼岸无舟"
-  },
-  "potentialAction": {
-    "@type": "SearchAction",
-    "target": "https://pwifi.github.io/?q={search_term_string}",
-    "query-input": "required name=search_term_string"
+  <!-- 结构化数据 Schema.org JSON-LD -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "无线安全审计",
+    "url": "https://pwifi.github.io/",
+    "description": "无线安全审计专业博客，提供WiFi安全检测工具教程、WPA/WPA2握手包抓取方法、hashcat密码破解指南、PMKID攻击技术等实战内容。",
+    "author": { "@type": "Person", "name": "彼岸无舟" }
   }
-}
-</script>
+  </script>
 
+  <style>
+    :root {
+      --bg: #131314;
+      --bg-soft: #1a1a1c;
+      --card: #1b1c1e;
+      --card-border: #2a2b2e;
+      --text: #e8e6e1;
+      --text-dim: #a19e97;
+      --accent: #f0a500;
+      --accent-soft: rgba(240, 165, 0, 0.10);
+      --accent-line: rgba(240, 165, 0, 0.35);
+      --mono: ui-monospace, "Cascadia Mono", Consolas, "Courier New", monospace;
+      --gradient: #f0a500;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
+        "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    a { color: inherit; text-decoration: none; }
+
+    .container { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
+
+    /* ---------- Navbar ---------- */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+      background: rgba(19, 19, 20, 0.92);
+      border-bottom: 1px solid var(--card-border);
+    }
+    .nav-inner {
+      max-width: 1140px; margin: 0 auto; padding: 0 24px;
+      height: 60px; display: flex; align-items: center; justify-content: space-between;
+    }
+    .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 1.02rem; }
+    .brand-dot {
+      width: 9px; height: 9px; border-radius: 2px;
+      background: var(--accent);
+      box-shadow: 0 0 6px rgba(240, 165, 0, 0.5);
+    }
+    .nav-links { display: flex; gap: 4px; align-items: center; }
+    .nav-links a {
+      padding: 7px 13px; border-radius: 6px; font-size: 0.92rem; color: var(--text-dim);
+      transition: color .2s, background .2s;
+    }
+    .nav-links a:hover { color: var(--text); background: rgba(255, 255, 255, 0.05); }
+    .nav-links a.nav-cta { color: #161405; background: var(--accent); font-weight: 600; }
+    .nav-links a.nav-cta:hover { background: #ffbb1f; }
+    @media (max-width: 720px) {
+      .nav-links a:not(.nav-cta) { display: none; }
+    }
+
+    /* ---------- Hero ---------- */
+    .hero {
+      position: relative; min-height: 88vh;
+      display: flex; align-items: center; text-align: center;
+      padding: 120px 0 80px;
+      background: var(--bg);
+      border-bottom: 1px solid var(--card-border);
+    }
+    .hero-inner { position: relative; max-width: 900px; margin: 0 auto; padding: 0 24px; }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-family: var(--mono);
+      padding: 6px 14px; border-radius: 6px; font-size: 0.82rem;
+      color: var(--accent); border: 1px solid var(--accent-line);
+      background: var(--accent-soft); margin-bottom: 30px;
+    }
+    .hero h1 {
+      font-size: clamp(2.3rem, 6vw, 4rem); font-weight: 800; letter-spacing: .01em;
+      line-height: 1.25;
+    }
+    .hero h1 .grad { color: var(--accent); }
+    .hero p.lead {
+      margin: 26px auto 0; max-width: 640px; color: var(--text-dim); font-size: 1.08rem;
+    }
+    .hero-actions { margin-top: 44px; display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .btn {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 13px 30px; border-radius: 8px; font-size: 1rem; font-weight: 600;
+      transition: background .2s, border-color .2s; cursor: pointer; border: none;
+    }
+    .btn-primary {
+      color: #161405; background: var(--accent);
+    }
+    .btn-primary:hover { background: #ffbb1f; }
+    .btn-ghost {
+      color: var(--text); border: 1px solid var(--card-border); background: var(--card);
+    }
+    .btn-ghost:hover { border-color: var(--accent-line); }
+
+    .hero-chips { margin-top: 52px; display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
+    .chip {
+      padding: 7px 16px; border-radius: 6px; font-size: 0.88rem; color: var(--text-dim);
+      border: 1px solid var(--card-border); background: var(--card);
+    }
+
+    /* ---------- Sections ---------- */
+    section { padding: 96px 0; }
+    .section-head { text-align: center; margin-bottom: 56px; }
+    .section-head .kicker {
+      font-family: var(--mono);
+      font-size: 0.8rem; font-weight: 600; letter-spacing: .18em;
+      color: var(--accent); text-transform: uppercase;
+    }
+    .section-head h2 { margin-top: 12px; font-size: clamp(1.7rem, 3.6vw, 2.3rem); font-weight: 800; }
+    .section-head p { margin-top: 14px; color: var(--text-dim); }
+
+    /* ---------- Flash / Firmware ---------- */
+    .flash-grid {
+      display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 40px; align-items: stretch;
+    }
+    @media (max-width: 860px) { .flash-grid { grid-template-columns: 1fr; } }
+    .flash-card {
+      border: 1px solid var(--card-border); border-radius: 12px;
+      background: var(--card); padding: 44px 40px; text-align: center;
+      display: flex; flex-direction: column; justify-content: center;
+    }
+    .flash-card h3 { font-size: 1.35rem; font-weight: 700; }
+    .flash-card .ver { font-family: var(--mono); color: var(--accent); font-size: 0.88rem; margin-top: 8px; }
+    .flash-card p { color: var(--text-dim); margin-top: 14px; font-size: 0.95rem; }
+    .install-wrapper { display: flex; justify-content: center; margin: 30px 0 6px; }
+    .unsupported {
+      display: block; max-width: 360px; margin: 0 auto;
+      padding: 14px 18px; border-radius: 8px; font-size: 0.9rem;
+      color: #f2c063; background: var(--accent-soft);
+      border: 1px solid var(--accent-line);
+    }
+    .flash-note { margin-top: 20px; font-size: 0.82rem; color: #85827b; }
+    .flash-note code {
+      padding: 2px 8px; border-radius: 5px; color: #f2c063;
+      background: var(--accent-soft); border: 1px solid rgba(240, 165, 0, 0.22);
+      font-family: var(--mono); font-size: 0.85rem;
+    }
+
+    .flash-side { display: flex; flex-direction: column; gap: 20px; }
+    .side-item {
+      flex: 1; border: 1px solid var(--card-border); border-radius: 12px;
+      background: var(--card); padding: 26px 28px;
+    }
+    .side-item h4 { font-size: 1.02rem; font-weight: 700; display: flex; align-items: center; gap: 10px; }
+    .side-item p { color: var(--text-dim); font-size: 0.9rem; margin-top: 8px; }
+    .chip-row { display: flex; gap: 10px; margin-top: 14px; flex-wrap: wrap; }
+    .chip-tag {
+      padding: 5px 13px; border-radius: 6px; font-size: 0.82rem; font-weight: 600;
+      color: #f2c063; background: var(--accent-soft);
+      border: 1px solid rgba(240, 165, 0, 0.28);
+      font-family: var(--mono);
+    }
+    .step { display: flex; gap: 14px; margin-top: 12px; font-size: 0.9rem; color: var(--text-dim); }
+    .step b { color: var(--text); }
+    .step-no {
+      flex: none; width: 24px; height: 24px; border-radius: 5px;
+      display: flex; align-items: center; justify-content: center;
+      font-family: var(--mono);
+      font-size: 0.78rem; font-weight: 700; color: #161405; background: var(--accent);
+      margin-top: 3px;
+    }
+
+    /* ---------- Features ---------- */
+    .features-grid {
+      display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px;
+    }
+    @media (max-width: 960px) { .features-grid { grid-template-columns: repeat(2, 1fr); } }
+    @media (max-width: 520px) { .features-grid { grid-template-columns: 1fr; } }
+    .feature {
+      border: 1px solid var(--card-border); border-radius: 12px; background: var(--card);
+      padding: 32px 26px; transition: border-color .2s;
+    }
+    .feature:hover { border-color: var(--accent-line); }
+    .feature .icon {
+      width: 50px; height: 50px; border-radius: 10px; font-size: 1.5rem;
+      display: flex; align-items: center; justify-content: center;
+      background: var(--accent-soft); border: 1px solid rgba(240, 165, 0, 0.28);
+      margin-bottom: 18px;
+    }
+    .feature h3 { font-size: 1.06rem; font-weight: 700; }
+    .feature p { margin-top: 10px; color: var(--text-dim); font-size: 0.89rem; }
+
+    /* ---------- Posts ---------- */
+    .posts-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    .post-card.featured { grid-column: 1 / -1; }
+    @media (max-width: 960px) { .posts-grid { grid-template-columns: 1fr; } }
+    .post-card {
+      position: relative; display: flex; flex-direction: column;
+      border: 1px solid var(--card-border); border-radius: 12px; overflow: hidden;
+      background: var(--card); transition: border-color .2s;
+    }
+    .post-card:hover { border-color: var(--accent-line); }
+    .post-card.featured .thumb { height: 210px; }
+    .post-card .thumb {
+      height: 120px; overflow: hidden; position: relative;
+      background: #232426;
+      border-bottom: 1px solid var(--card-border);
+    }
+    .post-card .thumb img {
+      width: 100%; height: 100%; object-fit: cover; opacity: .9;
+      transition: transform .4s;
+    }
+    .post-card:hover .thumb img { transform: scale(1.04); }
+    .post-card .tag {
+      position: absolute; top: 14px; left: 14px; padding: 4px 12px; border-radius: 5px;
+      font-family: var(--mono);
+      font-size: 0.76rem; font-weight: 700; color: #161405; background: var(--accent);
+    }
+    .post-card .body { padding: 24px 24px 28px; display: flex; flex-direction: column; flex: 1; }
+    .post-card h3 { font-size: 1.08rem; font-weight: 700; line-height: 1.5; }
+    .post-card p { margin-top: 10px; color: var(--text-dim); font-size: 0.88rem; flex: 1; }
+    .post-card .more {
+      margin-top: 18px; font-size: 0.88rem; font-weight: 600; color: var(--accent);
+      display: inline-flex; align-items: center; gap: 6px;
+      transition: gap .2s;
+    }
+    .post-card:hover .more { gap: 10px; }
+
+    /* ---------- Footer ---------- */
+    footer {
+      border-top: 1px solid var(--card-border);
+      padding: 40px 0; text-align: center; color: #85827b; font-size: 0.88rem;
+      background: #101011;
+    }
+    footer .foot-links { display: flex; gap: 24px; justify-content: center; margin-bottom: 14px; flex-wrap: wrap; }
+    footer a:hover { color: var(--text); }
+
+    /* ---------- Reveal animation ---------- */
+    .reveal { opacity: 0; transform: translateY(20px); transition: opacity .6s ease, transform .6s ease; }
+    .reveal.visible { opacity: 1; transform: none; }
+    @media (prefers-reduced-motion: reduce) {
+      .reveal { opacity: 1; transform: none; transition: none; }
+      html { scroll-behavior: auto; }
+    }
+  </style>
+
+  <script type="module" src="/json/dist/web/install-button.js"></script>
 </head>
 
-
 <body>
-  
 
-  <header>
-    
-
-<div class="header-inner" style="height: 50vh;">
-  <nav id="navbar" class="navbar fixed-top  navbar-expand-lg navbar-dark scrolling-navbar">
-  <div class="container">
-    <a class="navbar-brand" href="/">
-      <strong>彼岸无舟</strong>
-    </a>
-
-    <button id="navbar-toggler-btn" class="navbar-toggler" type="button" data-toggle="collapse"
-            data-target="#navbarSupportedContent"
-            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-      <div class="animated-icon"><span></span><span></span><span></span></div>
-    </button>
-
-    <!-- Collapsible content -->
-    <div class="collapse navbar-collapse" id="navbarSupportedContent">
-      <ul class="navbar-nav ml-auto text-center">
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/" target="_self">
-                <i class="iconfont icon-home-fill"></i>
-                <span>首页</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/archives/" target="_self">
-                <i class="iconfont icon-archive-fill"></i>
-                <span>归档</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/categories/" target="_self">
-                <i class="iconfont icon-category-fill"></i>
-                <span>分类</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/tags/" target="_self">
-                <i class="iconfont icon-tags-fill"></i>
-                <span>标签</span>
-              </a>
-            </li>
-          
-        
-          
-          
-          
-          
-            <li class="nav-item">
-              <a class="nav-link" href="/about/" target="_self">
-                <i class="iconfont icon-user-fill"></i>
-                <span>关于</span>
-              </a>
-            </li>
-          
-        
-        
-          <li class="nav-item" id="search-btn">
-            <a class="nav-link" target="_self" href="javascript:;" data-toggle="modal" data-target="#modalSearch" aria-label="Search">
-              <i class="iconfont icon-search"></i>
-            </a>
-          </li>
-          
-        
-        
-          <li class="nav-item" id="color-toggle-btn">
-            <a class="nav-link" target="_self" href="javascript:;" aria-label="Color Toggle">
-              <i class="iconfont icon-dark" id="color-toggle-icon"></i>
-            </a>
-          </li>
-        
-      </ul>
-    </div>
-  </div>
-</nav>
-
-  
-
-<div id="banner" class="banner" parallax=true
-     style="background: url('/img/default.png') no-repeat center center; background-size: cover;">
-  <div class="full-bg-img">
-    <div class="mask flex-center" style="background-color: rgba(0, 0, 0, 0.3)">
-      <div class="banner-text text-center fade-in-up">
-        <div class="h2">
-          
-            <span id="subtitle" data-typed-text="内心是善的，看到的善就多，内心是恶的，看到的恶就多，你觉得我慈悲，那是应为你慈悲！"></span>
-          
-        </div>
-
-        
+  <nav class="nav">
+    <div class="nav-inner">
+      <a class="brand" href="/">
+        <span class="brand-dot"></span>
+        <span>无线安全审计</span>
+      </a>
+      <div class="nav-links">
+        <a href="/">首页</a>
+        <a href="/post/35f17806.html">视频教程</a>
+        <a href="/post/tushijiaocheng.html">图文教程</a>
+        <a href="/post/e2db8e97.html">原理</a>
+        <a href="/post/5cf38bf9.html">hashcat</a>
+        <a href="/about/">关于</a>
+        <a class="nav-cta" href="#flash">固件升级</a>
       </div>
-
-      
     </div>
-  </div>
-</div>
+  </nav>
 
-</div>
-
+  <header class="hero">
+    <div class="hero-inner">
+      <span class="hero-badge">⏺ 2026 最新版 · 软硬一体即插即用</span>
+      <h1>无线安全审计<br><span class="grad">一键抓包 · 在线升级</span></h1>
+      <p class="lead">
+        WiFi 抓包 / 杀手 / 钓鱼 / PMKID 无客户端捕获，多功能合一。手机中文控制，无需命令代码，
+        固件支持浏览器一键在线烧录升级。
+      </p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#flash">立即升级固件</a>
+        <a class="btn btn-ghost" href="/post/35f17806.html">查看完整教程</a>
+      </div>
+      <div class="hero-chips">
+        <span class="chip">📶 隐藏网络抓包</span>
+        <span class="chip">🎣 WiFi 钓鱼</span>
+        <span class="chip">💀 WiFi 杀手</span>
+        <span class="chip">🔐 PMKID 无客户端</span>
+        <span class="chip">📱 手机中文控制</span>
+      </div>
+    </div>
   </header>
 
   <main>
-    
-      <div class="container nopadding-x-md">
-        <div id="board"
-          >
-          
-          <div class="container">
-            <div class="row">
-              <div class="col-12 col-md-10 m-auto">
-                
 
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/post/35f17806.html" target="_self">
-          无线安全审计工具-抓WiFi握手包视频wifi杀手钓鱼pmkid捕获多功能
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/post/35f17806.html" target="_self">
-        <div>
-          2026新版支持隐藏的网络wifi抓包、wifi钓鱼、wifi杀手、无客户端pmkid捕获多功能，老版本用户免费更新！
+    <!-- 固件在线升级 -->
+    <section id="flash">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="kicker">// Firmware Update</div>
+          <h2>固件在线升级</h2>
+          <p>设备通过 Type-C 连接电脑，直接在浏览器中完成固件烧录，无需安装任何驱动和工具。</p>
         </div>
-      </a>
 
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-06-06 16:36" pubdate>
-              2022-06-06
-            </time>
+        <div class="flash-grid">
+          <div class="flash-card reveal">
+            <h3>无线安全审计工具固件</h3>
+            <div class="ver">当前版本 v2.1 · 烧录地址 0x20000</div>
+            <p>支持单频 / 双频两种版本，升级前请先确认设备版本。</p>
+
+            <div class="install-wrapper">
+              <esp-web-install-button manifest="/json/manifest.json">
+                <span slot="unsupported" class="unsupported">
+                  当前浏览器不支持 Web Serial，请使用 Chrome / Edge 浏览器（桌面版）打开本页面。
+                </span>
+              </esp-web-install-button>
+            </div>
+
+            <div class="flash-note">
+              需要 HTTPS 访问 + Chrome/Edge 浏览器 · 烧录地址 <code>0x20000</code>
+            </div>
           </div>
-        
-        
-        
-      </div>
-    </article>
-  </div>
 
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/post/c7d23dcd.html" target="_self">
-          跑包软件演示软件字典下载
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/post/c7d23dcd.html" target="_self">
-        <div>
-          🎬 WiFi密码破解跑包视频教程，Passcape软件及新华字典、弱口令密码字典合集下载。夸克网盘统一下载。
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-05-05 09:19" pubdate>
-              2022-05-05
-            </time>
-          </div>
-        
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/post/e2db8e97.html" target="_self">
-          WPA/WPA2无线密码破解原理
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/post/e2db8e97.html" target="_self">
-        <div>
-          首先要抓包，这里推荐使用：无线安全审计工具抓包工具可以加下面qq购买 点击加qq好友 什么是握手包：wifi信号是加密的，如果你要连接无线路由器，就要给路由器发送一个请求，请求和无线路由器建立连接，这个请求就在一连串你要发送的数据包里，学名叫握手包，这个包里面包含了你发送过去的一个密码，但是这个密码是加密的。 所以我们要破解wifi我们首先要抓到这个包，再用电脑根据这个加密后的数据跑密码就行了。
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-05-02 15:36" pubdate>
-              2022-05-02
-            </time>
-          </div>
-        
-        
-        
-      </div>
-    </article>
-  </div>
-
-  <div class="row mx-auto index-card">
-    
-    
-    <article class="col-12 col-md-12 mx-auto index-info">
-      <h2 class="index-header">
-        
-        <a href="/post/5cf38bf9.html" target="_self">
-          hashcat安装以及WPA/WPA2破解常用命令笔记
-        </a>
-      </h2>
-
-      
-      <a class="index-excerpt index-excerpt__noimg" href="/post/5cf38bf9.html" target="_self">
-        <div>
-          安装1git clone https://github.com/hashcat/hashcat.git &amp;&amp; cd hashcat &amp;&amp; make -j 8 &amp;&amp; make install  8到10位掩码破解1hashcat -a 3 --session=wifi -m 22000 -w 4 -p : --hwmon-disable -o pass
-        </div>
-      </a>
-
-      <div class="index-btm post-metas">
-        
-          <div class="post-meta mr-3">
-            <i class="iconfont icon-date"></i>
-            <time datetime="2022-05-01 11:13" pubdate>
-              2022-05-01
-            </time>
-          </div>
-        
-        
-        
-      </div>
-    </article>
-  </div>
-
-
-
-
-
+          <div class="flash-side">
+            <div class="side-item reveal">
+              <h4>📶 支持版本</h4>
+              <div class="chip-row">
+                <span class="chip-tag">单频版 · 2.4G</span>
+                <span class="chip-tag">双频版 · 2.4G+5G</span>
               </div>
+              <p>两种版本使用同一份固件包，烧录地址统一为 0x20000，浏览器自动识别芯片（ESP32-C3 / ESP32-C5）。</p>
+            </div>
+            <div class="side-item reveal">
+              <h4>📋 升级步骤</h4>
+              <div class="step"><span class="step-no">1</span><span>用 Type-C 数据线将设备连接电脑</span></div>
+              <div class="step"><span class="step-no">2</span><span>点击左侧「升级固件」按钮</span></div>
+              <div class="step"><span class="step-no">3</span><span>选择设备端口，等待烧录完成</span></div>
             </div>
           </div>
         </div>
       </div>
-    
+    </section>
 
-    
-      <a id="scroll-top-button" aria-label="TOP" href="#" role="button">
-        <i class="iconfont icon-arrowup" aria-hidden="true"></i>
-      </a>
-    
-
-    
-      <div class="modal fade" id="modalSearch" tabindex="-1" role="dialog" aria-labelledby="ModalLabel"
-     aria-hidden="true">
-  <div class="modal-dialog modal-dialog-scrollable modal-lg" role="document">
-    <div class="modal-content">
-      <div class="modal-header text-center">
-        <h4 class="modal-title w-100 font-weight-bold">搜索</h4>
-        <button type="button" id="local-search-close" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body mx-3">
-        <div class="md-form mb-5">
-          <input type="text" id="local-search-input" class="form-control validate">
-          <label data-error="x" data-success="v" for="local-search-input">关键词</label>
+    <!-- 核心功能 -->
+    <section id="features">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="kicker">// Features</div>
+          <h2>多功能合一</h2>
+          <p>一台设备，覆盖无线安全审计全流程。</p>
         </div>
-        <div class="list-group" id="local-search-result"></div>
+        <div class="features-grid">
+          <div class="feature reveal">
+            <div class="icon">📶</div>
+            <h3>WiFi 抓包</h3>
+            <p>自动捕获 WPA/WPA2 握手包，支持隐藏网络，pcap 格式一键下载。</p>
+          </div>
+          <div class="feature reveal">
+            <div class="icon">💀</div>
+            <h3>WiFi 杀手</h3>
+            <p>断网攻击测试，快速验证目标网络的抗干扰能力。</p>
+          </div>
+          <div class="feature reveal">
+            <div class="icon">🎣</div>
+            <h3>WiFi 钓鱼</h3>
+            <p>仿真热点钓鱼测试，中文界面，手机即可控制全程。</p>
+          </div>
+          <div class="feature reveal">
+            <div class="icon">🔐</div>
+            <h3>PMKID 捕获</h3>
+            <p>无客户端 PMKID 捕获，无需等待握手，默认 10 秒自动完成。</p>
+          </div>
+        </div>
       </div>
-    </div>
-  </div>
-</div>
+    </section>
 
-    
+    <!-- 教程文章 -->
+    <section id="posts">
+      <div class="container">
+        <div class="section-head reveal">
+          <div class="kicker">// Tutorials</div>
+          <h2>实战教程</h2>
+          <p>从抓包到跑包破解，完整流程一篇文章讲透。</p>
+        </div>
+        <div class="posts-grid">
+          <a class="post-card featured reveal" href="/post/35f17806.html">
+            <div class="thumb">
+              <img src="/imgs/tutorial/device-connect.png" alt="实战视频教程" loading="lazy">
+              <span class="tag">视频教程 + 下载</span>
+            </div>
+            <div class="body">
+              <h3>无线安全审计工具实战视频教程（抓包 / 跑包 / 字典下载）</h3>
+              <p>抓包演示、电脑跑包、手机跑包三段视频，跑包软件与密码字典夸克网盘下载；分步截图请看图文教程。</p>
+              <span class="more">观看视频 →</span>
+            </div>
+          </a>
+          <a class="post-card reveal" href="/post/tushijiaocheng.html">
+            <div class="thumb">
+              <span class="tag">图文</span>
+            </div>
+            <div class="body">
+              <h3>抓包图文分步教程</h3>
+              <p>供电连接 → 选定目标 → 等待抓包 → 下载握手包，四步完成，配界面截图。</p>
+              <span class="more">阅读全文 →</span>
+            </div>
+          </a>
+          <a class="post-card reveal" href="/post/e2db8e97.html">
+            <div class="thumb">
+              <span class="tag">原理</span>
+            </div>
+            <div class="body">
+              <h3>WPA/WPA2 无线密码破解原理</h3>
+              <p>什么是握手包？为什么要先抓包再跑字典？破解原理通俗讲解。</p>
+              <span class="more">阅读全文 →</span>
+            </div>
+          </a>
+          <a class="post-card reveal" href="/post/5cf38bf9.html">
+            <div class="thumb">
+              <span class="tag">工具</span>
+            </div>
+            <div class="body">
+              <h3>hashcat 安装及 WPA/WPA2 破解常用命令笔记</h3>
+              <p>hashcat 安装步骤与 22000 模式常用掩码破解命令速查。</p>
+              <span class="more">阅读全文 →</span>
+            </div>
+          </a>
+        </div>
+      </div>
+    </section>
 
-    
   </main>
 
   <footer>
-    <div class="footer-inner">
-  
-    <div class="footer-content">
-       <div style="font-size: 0.85rem"> <span id="timeDate">载入天数...</span> <span id="times">载入时分秒...</span> <script src="/js/duration.js"></script> </div> 
+    <div class="container">
+      <div class="foot-links">
+        <a href="/post/35f17806.html">视频教程</a>
+        <a href="/post/tushijiaocheng.html">图文教程</a>
+        <a href="/post/e2db8e97.html">破解原理</a>
+        <a href="/post/5cf38bf9.html">hashcat 笔记</a>
+        <a href="/json/">固件升级页</a>
+        <a href="/about/">关于</a>
+      </div>
+      <div>© 无线安全审计 · 仅限授权环境下的安全研究与学习使用</div>
     </div>
-  
-  
-  
-  
-</div>
-
   </footer>
 
-  <!-- Scripts -->
-  
-  <script  src="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.js" ></script>
-  <link  rel="stylesheet" href="https://lib.baomitu.com/nprogress/0.2.0/nprogress.min.css" />
-
   <script>
-    NProgress.configure({"showSpinner":false,"trickleSpeed":100})
-    NProgress.start()
-    window.addEventListener('load', function() {
-      NProgress.done();
-    })
+    // 滚动渐入动画
+    (function () {
+      var io = new IntersectionObserver(function (entries) {
+        entries.forEach(function (e) {
+          if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
+        });
+      }, { threshold: 0.12 });
+      document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
+    })();
   </script>
-
-
-<script  src="https://lib.baomitu.com/jquery/3.6.4/jquery.min.js" ></script>
-<script  src="https://lib.baomitu.com/twitter-bootstrap/4.6.1/js/bootstrap.min.js" ></script>
-<script  src="/js/events.js" ></script>
-<script  src="/js/plugins.js" ></script>
-
-
-  <script  src="https://lib.baomitu.com/typed.js/2.0.12/typed.min.js" ></script>
-  <script>
-    (function (window, document) {
-      var typing = Fluid.plugins.typing;
-      var subtitle = document.getElementById('subtitle');
-      if (!subtitle || !typing) {
-        return;
-      }
-      var text = subtitle.getAttribute('data-typed-text');
-      
-        jQuery.ajax({
-          type: 'GET',
-          url: 'https://v1.hitokoto.cn/',
-          headers: {},
-          dataType: 'json',
-          success: function(result) {
-            var apiText;
-            if (result) {
-              var keys = 'hitokoto'.split(',');
-              if (result instanceof Array) {
-                result = result[0];
-              }
-              for (const k of keys) {
-                var value = result[k];
-                if (typeof value === 'string') {
-                  apiText = value;
-                  break;
-                } else if (value instanceof Object) {
-                  result = value;
-                }
-              }
-            }
-            apiText ? typing(apiText) : typing(text);
-          },
-          error: function(xhr, status, error) {
-            if (error) {
-              console.error('Failed to request https://v1.hitokoto.cn/:', error);
-            }
-            typing(text);
-          }
-        })
-      
-    })(window, document);
-  </script>
-
-
-
-
-  
-    <script  src="/js/img-lazyload.js" ></script>
-  
-
-
-
-
-  <script  src="/js/local-search.js" ></script>
-
-
-
-
-
-<!-- 主题的启动项，将它保持在最底部 -->
-<!-- the boot of the theme, keep it at the bottom -->
-<script  src="/js/boot.js" ></script>
-
-
-  
 
   <noscript>
-    <div class="noscript-warning">博客在允许 JavaScript 运行的环境下浏览效果更佳</div>
+    <div style="text-align:center;padding:20px;color:#fff;background:#b91c1c">本站需要启用 JavaScript 才能正常浏览</div>
   </noscript>
 </body>
 </html>

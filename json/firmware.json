@@ -1,7 +1,10 @@
 {
   "version": "2.1",
-  "note": "精简更新设置界面，单一检查更新按钮",
+  "note": "固件烧录地址统一为 0x20000，支持 ESP32-C3 与 ESP32-C5",
   "url": "https://pwifi.github.io/json/firmware_2.1.bin",
+  "offset": "0x20000",
+  "chips": ["ESP32-C3", "ESP32-C5"],
   "size": 996400,
-  "sha256": "d92bfce8adf4ccaaf30c0ad42dc13e5c709f1f2783ec4a19cd337b3a8417591d"
+  "sha256": "d92bfce8adf4ccaaf30c0ad42dc13e5c709f1f2783ec4a19cd337b3a8417591d",
+  "manifest": "https://pwifi.github.io/json/manifest.json"
 }
