@@ -102,6 +102,9 @@ a { color: inherit; text-decoration: none; }
   .nav-menu a.active { color: var(--accent); background: var(--accent-soft); }
 }
 
+/* 锚点跳转时避开固定导航（手机/桌面一致） */
+[id] { scroll-margin-top: 76px; }
+
 /* ---------- Page hero (子页头部) ---------- */
 .page-hero {
   padding: 120px 0 52px; text-align: center; position: relative;
