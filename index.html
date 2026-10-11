@@ -9,7 +9,7 @@
   <meta http-equiv="x-ua-compatible" content="ie=edge">
   <meta name="theme-color" content="#131314">
   <meta name="author" content="彼岸无舟">
-  <meta name="description" content="无线安全审计专业博客，提供WiFi安全检测工具教程、WPA/WPA2握手包抓取方法、hashcat密码破解指南、pmkid攻击技术等实战内容。2026最新版多功能抓包工具，支持隐藏网络、钓鱼攻击、无客户端捕获。固件在线升级，支持单频 / 双频两种版本。">
+  <meta name="description" content="无线安全审计专业博客，提供WiFi安全检测工具教程、WPA/WPA2握手包抓取方法、hashcat密码破解指南、pmkid攻击技术等实战内容。2026最新版多功能抓包工具，支持隐藏网络、钓鱼攻击、无客户端捕获，配套视频教程与图文教程。">
   <meta name="keywords" content="无线安全,WiFi安全审计,握手包抓取,WPA破解,hashcat,pmkid攻击,网络安全工具,渗透测试,WiFi密码破解,单频,双频,ESP32-C3,ESP32-C5,固件升级">
   <link rel="canonical" href="https://pwifi.github.io/">
 
@@ -21,7 +21,9 @@
   <meta property="article:author" content="彼岸无舟">
   <meta name="twitter:card" content="summary_large_image">
 
-  <title>无线安全审计 — 一键在线升级固件</title>
+  <title>无线安全审计 — 实战教程与工具下载</title>
+  <link rel="stylesheet" href="/css/site.css">
+  <script src="/js/nav.js" defer></script>
 
   <!-- Clarity tracking code for https://pwifi.github.io/ -->
   <script>
@@ -45,64 +47,8 @@
   </script>
 
   <style>
-    :root {
-      --bg: #131314;
-      --bg-soft: #1a1a1c;
-      --card: #1b1c1e;
-      --card-border: #2a2b2e;
-      --text: #e8e6e1;
-      --text-dim: #a19e97;
-      --accent: #f0a500;
-      --accent-soft: rgba(240, 165, 0, 0.10);
-      --accent-line: rgba(240, 165, 0, 0.35);
-      --mono: ui-monospace, "Cascadia Mono", Consolas, "Courier New", monospace;
-      --gradient: #f0a500;
-    }
-
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-
-    html { scroll-behavior: smooth; }
-
-    body {
-      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC",
-        "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
-      background: var(--bg);
-      color: var(--text);
-      line-height: 1.7;
-      overflow-x: hidden;
-    }
-
-    a { color: inherit; text-decoration: none; }
-
+    /* 导航/全局基础样式统一由 /css/site.css 提供，此处仅保留首页专属样式 */
     .container { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
-
-    /* ---------- Navbar ---------- */
-    .nav {
-      position: fixed; top: 0; left: 0; right: 0; z-index: 100;
-      background: rgba(19, 19, 20, 0.92);
-      border-bottom: 1px solid var(--card-border);
-    }
-    .nav-inner {
-      max-width: 1140px; margin: 0 auto; padding: 0 24px;
-      height: 60px; display: flex; align-items: center; justify-content: space-between;
-    }
-    .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 1.02rem; }
-    .brand-dot {
-      width: 9px; height: 9px; border-radius: 2px;
-      background: var(--accent);
-      box-shadow: 0 0 6px rgba(240, 165, 0, 0.5);
-    }
-    .nav-links { display: flex; gap: 4px; align-items: center; }
-    .nav-links a {
-      padding: 7px 13px; border-radius: 6px; font-size: 0.92rem; color: var(--text-dim);
-      transition: color .2s, background .2s;
-    }
-    .nav-links a:hover { color: var(--text); background: rgba(255, 255, 255, 0.05); }
-    .nav-links a.nav-cta { color: #161405; background: var(--accent); font-weight: 600; }
-    .nav-links a.nav-cta:hover { background: #ffbb1f; }
-    @media (max-width: 720px) {
-      .nav-links a:not(.nav-cta) { display: none; }
-    }
 
     /* ---------- Hero ---------- */
     .hero {
@@ -143,12 +89,6 @@
     }
     .btn-ghost:hover { border-color: var(--accent-line); }
 
-    .hero-chips { margin-top: 52px; display: flex; gap: 10px; justify-content: center; flex-wrap: wrap; }
-    .chip {
-      padding: 7px 16px; border-radius: 6px; font-size: 0.88rem; color: var(--text-dim);
-      border: 1px solid var(--card-border); background: var(--card);
-    }
-
     /* ---------- Sections ---------- */
     section { padding: 96px 0; }
     .section-head { text-align: center; margin-bottom: 56px; }
@@ -159,57 +99,6 @@
     }
     .section-head h2 { margin-top: 12px; font-size: clamp(1.7rem, 3.6vw, 2.3rem); font-weight: 800; }
     .section-head p { margin-top: 14px; color: var(--text-dim); }
-
-    /* ---------- Flash / Firmware ---------- */
-    .flash-grid {
-      display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 40px; align-items: stretch;
-    }
-    @media (max-width: 860px) { .flash-grid { grid-template-columns: 1fr; } }
-    .flash-card {
-      border: 1px solid var(--card-border); border-radius: 12px;
-      background: var(--card); padding: 44px 40px; text-align: center;
-      display: flex; flex-direction: column; justify-content: center;
-    }
-    .flash-card h3 { font-size: 1.35rem; font-weight: 700; }
-    .flash-card .ver { font-family: var(--mono); color: var(--accent); font-size: 0.88rem; margin-top: 8px; }
-    .flash-card p { color: var(--text-dim); margin-top: 14px; font-size: 0.95rem; }
-    .install-wrapper { display: flex; justify-content: center; margin: 30px 0 6px; }
-    .unsupported {
-      display: block; max-width: 360px; margin: 0 auto;
-      padding: 14px 18px; border-radius: 8px; font-size: 0.9rem;
-      color: #f2c063; background: var(--accent-soft);
-      border: 1px solid var(--accent-line);
-    }
-    .flash-note { margin-top: 20px; font-size: 0.82rem; color: #85827b; }
-    .flash-note code {
-      padding: 2px 8px; border-radius: 5px; color: #f2c063;
-      background: var(--accent-soft); border: 1px solid rgba(240, 165, 0, 0.22);
-      font-family: var(--mono); font-size: 0.85rem;
-    }
-
-    .flash-side { display: flex; flex-direction: column; gap: 20px; }
-    .side-item {
-      flex: 1; border: 1px solid var(--card-border); border-radius: 12px;
-      background: var(--card); padding: 26px 28px;
-    }
-    .side-item h4 { font-size: 1.02rem; font-weight: 700; display: flex; align-items: center; gap: 10px; }
-    .side-item p { color: var(--text-dim); font-size: 0.9rem; margin-top: 8px; }
-    .chip-row { display: flex; gap: 10px; margin-top: 14px; flex-wrap: wrap; }
-    .chip-tag {
-      padding: 5px 13px; border-radius: 6px; font-size: 0.82rem; font-weight: 600;
-      color: #f2c063; background: var(--accent-soft);
-      border: 1px solid rgba(240, 165, 0, 0.28);
-      font-family: var(--mono);
-    }
-    .step { display: flex; gap: 14px; margin-top: 12px; font-size: 0.9rem; color: var(--text-dim); }
-    .step b { color: var(--text); }
-    .step-no {
-      flex: none; width: 24px; height: 24px; border-radius: 5px;
-      display: flex; align-items: center; justify-content: center;
-      font-family: var(--mono);
-      font-size: 0.78rem; font-weight: 700; color: #161405; background: var(--accent);
-      margin-top: 3px;
-    }
 
     /* ---------- Features ---------- */
     .features-grid {
@@ -323,8 +212,6 @@
       .support-panel { width: min(320px, calc(100vw - 32px)); }
     }
   </style>
-
-  <script type="module" src="/json/dist/web/install-button.js"></script>
 </head>
 
 <body>
@@ -342,7 +229,7 @@
         <a href="/post/e2db8e97.html">原理</a>
         <a href="/post/5cf38bf9.html">hashcat</a>
         <a href="/about/">关于</a>
-        <a class="nav-cta" href="#flash">固件升级</a>
+        <a class="nav-cta" href="/json/">固件升级</a>
       </div>
     </div>
   </nav>
@@ -350,75 +237,19 @@
   <header class="hero">
     <div class="hero-inner">
       <span class="hero-badge">⏺ 2026 最新版 · 软硬一体即插即用</span>
-      <h1>无线安全审计<br><span class="grad">一键抓包 · 在线升级</span></h1>
+      <h1>无线安全审计<br><span class="grad">一键抓包 · 多功能合一</span></h1>
       <p class="lead">
-        WiFi 抓包 / 杀手 / 钓鱼 / PMKID 无客户端捕获，多功能合一。手机中文控制，无需命令代码，
-        固件支持浏览器一键在线烧录升级。
+        WiFi 抓包 / 杀手 / 钓鱼 / PMKID 无客户端捕获，手机中文控制，无需命令代码。
+        配套实战视频教程、图文教程与工具字典下载。
       </p>
       <div class="hero-actions">
-        <a class="btn btn-primary" href="#flash">立即升级固件</a>
-        <a class="btn btn-ghost" href="/post/35f17806.html">查看完整教程</a>
+        <a class="btn btn-primary" href="/post/35f17806.html">查看完整教程</a>
         <button class="btn btn-ghost" type="button" onclick="var p=document.getElementById('supportPanel'),b=document.getElementById('supportBtn'); if(p){p.hidden=false; b&&b.setAttribute('aria-expanded','true');} event.stopPropagation()">🎫 微信下单</button>
-      </div>
-      <div class="hero-chips">
-        <span class="chip">📶 隐藏网络抓包</span>
-        <span class="chip">🎣 WiFi 钓鱼</span>
-        <span class="chip">💀 WiFi 杀手</span>
-        <span class="chip">🔐 PMKID 无客户端</span>
-        <span class="chip">📱 手机中文控制</span>
       </div>
     </div>
   </header>
 
   <main>
-
-    <!-- 固件在线升级 -->
-    <section id="flash">
-      <div class="container">
-        <div class="section-head reveal">
-          <div class="kicker">// Firmware Update</div>
-          <h2>固件在线升级</h2>
-          <p>设备通过 Type-C 连接电脑，直接在浏览器中完成固件烧录，无需安装任何驱动和工具。</p>
-        </div>
-
-        <div class="flash-grid">
-          <div class="flash-card reveal">
-            <h3>无线安全审计工具固件</h3>
-            <div class="ver">当前版本 v2.1</div>
-            <p>支持单频 / 双频两种版本，仅支持本站购买设备版本。</p>
-
-            <div class="install-wrapper">
-              <esp-web-install-button manifest="/json/manifest.json">
-                <span slot="unsupported" class="unsupported">
-                  当前浏览器不支持 Web Serial，请使用 Chrome / Edge 浏览器（桌面版）打开本页面。
-                </span>
-              </esp-web-install-button>
-            </div>
-
-            <div class="flash-note">
-              需要 HTTPS 访问 + Chrome/Edge 浏览器
-            </div>
-          </div>
-
-          <div class="flash-side">
-            <div class="side-item reveal">
-              <h4>📶 支持版本</h4>
-              <div class="chip-row">
-                <span class="chip-tag">单频版 · 2.4G</span>
-                <span class="chip-tag">双频版 · 2.4G+5G</span>
-              </div>
-              <p>两种版本使用同一份固件包，浏览器自动识别芯片。</p>
-            </div>
-            <div class="side-item reveal">
-              <h4>📋 升级步骤</h4>
-              <div class="step"><span class="step-no">1</span><span>用 Type-C 数据线将设备连接电脑</span></div>
-              <div class="step"><span class="step-no">2</span><span>点击左侧「升级固件」按钮</span></div>
-              <div class="step"><span class="step-no">3</span><span>选择设备端口，等待烧录完成</span></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
 
     <!-- 核心功能 -->
     <section id="features">
