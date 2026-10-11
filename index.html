@@ -50,15 +50,14 @@
     /* 导航/全局基础样式统一由 /css/site.css 提供，此处仅保留首页专属样式 */
     .container { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
 
-    /* ---------- Hero ---------- */
+    /* ---------- Hero（标题与功能描述合并区） ---------- */
     .hero {
-      position: relative; min-height: 88vh;
-      display: flex; align-items: center; text-align: center;
-      padding: 120px 0 80px;
+      position: relative; text-align: center;
+      padding: 140px 0 88px;
       background: var(--bg);
       border-bottom: 1px solid var(--card-border);
     }
-    .hero-inner { position: relative; max-width: 900px; margin: 0 auto; padding: 0 24px; }
+    .hero-inner { position: relative; max-width: 1100px; margin: 0 auto; padding: 0 24px; }
     .hero-badge {
       display: inline-flex; align-items: center; gap: 8px;
       font-family: var(--mono);
@@ -71,10 +70,7 @@
       line-height: 1.25;
     }
     .hero h1 .grad { color: var(--accent); }
-    .hero p.lead {
-      margin: 26px auto 0; max-width: 640px; color: var(--text-dim); font-size: 1.08rem;
-    }
-    .hero-actions { margin-top: 44px; display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
+    .hero-actions { margin-top: 38px; display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; }
     .btn {
       display: inline-flex; align-items: center; gap: 8px;
       padding: 13px 30px; border-radius: 8px; font-size: 1rem; font-weight: 600;
@@ -119,6 +115,8 @@
     }
     .feature h3 { font-size: 1.06rem; font-weight: 700; }
     .feature p { margin-top: 10px; color: var(--text-dim); font-size: 0.89rem; }
+    .hero .features-grid { margin-top: 64px; text-align: left; }
+    .hero .feature { padding: 26px 22px; }
 
     /* ---------- Posts ---------- */
     .posts-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
@@ -238,51 +236,36 @@
     <div class="hero-inner">
       <span class="hero-badge">⏺ 2026 最新版 · 软硬一体即插即用</span>
       <h1>无线安全审计<br><span class="grad">一键抓包 · 多功能合一</span></h1>
-      <p class="lead">
-        WiFi 抓包 / 杀手 / 钓鱼 / PMKID 无客户端捕获，手机中文控制，无需命令代码。
-        配套实战视频教程、图文教程与工具字典下载。
-      </p>
       <div class="hero-actions">
         <a class="btn btn-primary" href="/post/35f17806.html">查看完整教程</a>
         <button class="btn btn-ghost" type="button" onclick="var p=document.getElementById('supportPanel'),b=document.getElementById('supportBtn'); if(p){p.hidden=false; b&&b.setAttribute('aria-expanded','true');} event.stopPropagation()">🎫 微信下单</button>
+      </div>
+      <div class="features-grid">
+        <div class="feature reveal">
+          <div class="icon">📶</div>
+          <h3>WiFi 抓包</h3>
+          <p>自动捕获 WPA/WPA2 握手包，支持隐藏网络，pcap 格式一键下载。</p>
+        </div>
+        <div class="feature reveal">
+          <div class="icon">💀</div>
+          <h3>WiFi 杀手</h3>
+          <p>断网攻击测试，快速验证目标网络的抗干扰能力。</p>
+        </div>
+        <div class="feature reveal">
+          <div class="icon">🎣</div>
+          <h3>WiFi 钓鱼</h3>
+          <p>仿真热点钓鱼测试，中文界面，手机即可控制全程。</p>
+        </div>
+        <div class="feature reveal">
+          <div class="icon">🔐</div>
+          <h3>PMKID 捕获</h3>
+          <p>无客户端 PMKID 捕获，无需等待握手，默认 10 秒自动完成。</p>
+        </div>
       </div>
     </div>
   </header>
 
   <main>
-
-    <!-- 核心功能 -->
-    <section id="features">
-      <div class="container">
-        <div class="section-head reveal">
-          <div class="kicker">// Features</div>
-          <h2>多功能合一</h2>
-          <p>一台设备，覆盖无线安全审计全流程。</p>
-        </div>
-        <div class="features-grid">
-          <div class="feature reveal">
-            <div class="icon">📶</div>
-            <h3>WiFi 抓包</h3>
-            <p>自动捕获 WPA/WPA2 握手包，支持隐藏网络，pcap 格式一键下载。</p>
-          </div>
-          <div class="feature reveal">
-            <div class="icon">💀</div>
-            <h3>WiFi 杀手</h3>
-            <p>断网攻击测试，快速验证目标网络的抗干扰能力。</p>
-          </div>
-          <div class="feature reveal">
-            <div class="icon">🎣</div>
-            <h3>WiFi 钓鱼</h3>
-            <p>仿真热点钓鱼测试，中文界面，手机即可控制全程。</p>
-          </div>
-          <div class="feature reveal">
-            <div class="icon">🔐</div>
-            <h3>PMKID 捕获</h3>
-            <p>无客户端 PMKID 捕获，无需等待握手，默认 10 秒自动完成。</p>
-          </div>
-        </div>
-      </div>
-    </section>
 
     <!-- 教程文章 -->
     <section id="posts">
