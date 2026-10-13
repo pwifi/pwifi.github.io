@@ -1,7 +1,7 @@
 {
-  "versionCode": 2,
+  "versionCode": 3,
   "versionName": "1.1",
   "apk": "https://pwifi.github.io/apk/handshake-tool-v1.1.apk",
-  "notes": "修复列表模式批量加速（硬件加速·4路）下口令验证不命中的问题；更新提示仅在发现新版本时显示。",
+  "notes": "修复在线更新安装报\"软件包解析问题\"；\"关于\"版本号改为动态显示。注意：v1.0 需手动安装本次更新（旧版自更新通道有缺陷），之后可正常在线更新。",
   "sha256": ""
 }
