@@ -1,0 +1,7 @@
+{
+  "versionCode": 1,
+  "versionName": "1.0",
+  "apk": "https://pwifi.github.io/apk/handshake-tool-v1.0.apk",
+  "notes": "首发版本：握手包分析/格式互转/WPA2 口令验证（ARMv8 硬件加速）。",
+  "sha256": ""
+}
