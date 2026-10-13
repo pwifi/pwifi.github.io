@@ -1,7 +1,7 @@
 {
-  "versionCode": 1,
-  "versionName": "1.0",
-  "apk": "https://pwifi.github.io/apk/handshake-tool-v1.0.apk",
-  "notes": "首发版本：握手包分析/格式互转/WPA2 口令验证（ARMv8 硬件加速）。",
+  "versionCode": 2,
+  "versionName": "1.1",
+  "apk": "https://pwifi.github.io/apk/handshake-tool-v1.1.apk",
+  "notes": "修复列表模式批量加速（硬件加速·4路）下口令验证不命中的问题；更新提示仅在发现新版本时显示。",
   "sha256": ""
 }
