@@ -2,147 +2,38 @@
 <html lang="zh-CN">
 <head>
   <meta charset="UTF-8">
-  <link rel="apple-touch-icon" sizes="76x76" href="/img/fluid.png">
-  <link rel="icon" href="/img/fluid.png">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="author" content="彼岸无舟">
-  <meta name="description" content="hashcat安装教程以及WPA/WPA2破解常用命令笔记：掩码破解、字典破解、字典加规则、掩码文件、任务还原恢复。">
-  <meta name="keywords" content="hashcat,安装,22000,掩码破解,字典破解,wifi.hc22000">
-  <link rel="canonical" href="https://pwifi.github.io/post/5cf38bf9.html">
-  <meta property="og:type" content="article">
-  <meta property="og:title" content="hashcat安装以及WPA/WPA2破解常用命令笔记">
-  <meta property="og:url" content="https://pwifi.github.io/post/5cf38bf9.html">
-  <meta property="og:site_name" content="无线安全审计">
-  <meta property="og:locale" content="zh_CN">
-  <title>hashcat 常用命令笔记 - 无线安全审计</title>
-  <link rel="stylesheet" href="/css/site.css">
-  <script>
-      (function(c,l,a,r,i,t,y){
-          c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-          t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i+"?ref=bwt";
-          y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-      })(window, document, "clarity", "script", "waaczo49jq");
-  </script>
-  <script src="/js/nav.js" defer></script>
+  <meta name="robots" content="noindex, follow">
+  <link rel="canonical" href="https://pwifi.github.io/post/35f17806.html">
+  <meta http-equiv="refresh" content="0; url=/post/35f17806.html">
+  <title>文章已下线 - 无线安全审计</title>
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+      margin: 0; min-height: 100vh; display: flex; align-items: center; justify-content: center;
+      background: #131314;
+      color: #e8e6e1; text-align: center; padding: 24px;
+    }
+    .card {
+      max-width: 460px; width: 100%; padding: 44px 36px; border-radius: 18px;
+      background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.09);
+    }
+    h1 { font-size: 1.4rem; margin-bottom: 12px; }
+    p { color: #a19e97; font-size: .95rem; margin: 0 0 26px; }
+    a {
+      display: inline-block; padding: 12px 30px; border-radius: 12px; font-weight: 600;
+      color: #161405; text-decoration: none;
+      background: #f0a500;
+    }
+  </style>
 </head>
 <body>
-
-  <nav class="nav">
-    <div class="nav-inner">
-      <a class="brand" href="/"><span class="brand-dot"></span><span>无线安全审计</span></a>
-      <div class="nav-links">
-        <a href="/">首页</a>
-        <a href="/post/35f17806.html">视频教程</a>
-        <a href="/post/tushijiaocheng.html">图文教程</a>
-        <a href="/post/e2db8e97.html">原理</a>
-        <a href="/post/5cf38bf9.html" class="active">hashcat</a>
-        <a href="/post/35f17806.html#downloads">下载</a>
-        <a href="/about/">关于</a>
-        <a class="nav-cta" href="/json/">固件升级</a>
-      </div>
-    </div>
-  </nav>
-
-  <header class="page-hero">
-    <div class="inner wrap">
-      <div class="crumbs"><a href="/">首页</a> / hashcat</div>
-      <h1>hashcat 安装与 <span class="grad">WPA/WPA2 破解命令笔记</span></h1>
-      <p class="lead">掩码破解 / 字典破解 / 字典加规则 / 掩码文件 / 任务还原，速查手册。</p>
-    </div>
-  </header>
-
-  <main>
-    <div class="wrap-narrow article">
-      <h2 class="reveal">安装</h2>
-      <pre class="reveal"><code>git clone https://github.com/hashcat/hashcat.git &amp;&amp; cd hashcat &amp;&amp; make -j 8 &amp;&amp; make install</code></pre>
-
-      <h2 class="reveal">8到10位掩码破解</h2>
-      <pre class="reveal"><code>hashcat -a 3 --session=wifi -m 22000 -w 4 -p : --hwmon-disable -o password.txt --outfile-format=1,2 -i --increment-min=8 --increment-max=10 wifi.hc22000 ?d?d?d?d?d?d?d?d?d?d</code></pre>
-
-      <h2 class="reveal">字典破解</h2>
-      <pre class="reveal"><code>hashcat -a 0 --session=wifi -m 22000 -w 4 -p : --hwmon-disable -o password.txt --outfile-format=1,2 wifi.hc22000 字典.dic</code></pre>
-
-      <h2 class="reveal">字典加规则</h2>
-      <pre class="reveal"><code>hashcat -a 0 --session=wifi -m 22000 -w 4 -p : --hwmon-disable -o password.txt -r 规则.rule --outfile-format=1,2 wifi.hc22000 字典.dic</code></pre>
-
-      <h2 class="reveal">掩码文件</h2>
-      <pre class="reveal"><code>hashcat -a 3 --session=wifi -m 22000 -w 4 -p : --hwmon-disable -o password.txt --outfile-format=1,2 TP-wifi.hc22000 掩码文件.hcmask</code></pre>
-
-      <h2 class="reveal">还原操作方法</h2>
-      <p class="reveal">假设您使用此命令行启动破解作业：</p>
-      <pre class="reveal"><code>hashcat -a 0 --session=wifi -m 22000 -w 4 -p : --hwmon-disable -o password.txt --outfile-format=1,2 wifi.hc22000 字典.dic</code></pre>
-      <p class="reveal">你在它运行时点击了“c”（或“q”表示退出）（或者由于其他原因被停止/杀死）。此命令恢复上述破解作业：</p>
-      <pre class="reveal"><code>hashcat --session=wifi --restore</code></pre>
-      <p class="reveal">–restore 命令不需要也不允许任何其他参数，除了 –session（和 –restore 本身和 –restore-file-path）。还原作业时，不能简单地添加或更改某些参数。如果你真的坚持要改变任何论点，你可能会使用一些外部工具（如analyze_hc_restore），风险自负。</p>
-    </div>
-  </main>
-
-  <footer class="site-footer">
-    <div class="wrap">
-      <div class="foot-links">
-        <a href="/post/35f17806.html">视频教程</a>
-        <a href="/post/tushijiaocheng.html">图文教程</a>
-        <a href="/post/e2db8e97.html">破解原理</a>
-        <a href="/post/5cf38bf9.html">hashcat 笔记</a>
-        <a href="/json/">固件升级页</a>
-        <a href="/about/">关于</a>
-      </div>
-      <div>© 无线安全审计 · 仅限授权环境下的安全研究与学习使用</div>
-    </div>
-  </footer>
-
-  <button id="toTop" aria-label="回到顶部">↑</button>
-
-  <script>
-    (function () {
-      var io = new IntersectionObserver(function (entries) {
-        entries.forEach(function (e) {
-          if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
-        });
-      }, { threshold: 0.12 });
-      document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
-      var toTop = document.getElementById('toTop');
-      window.addEventListener('scroll', function () {
-        toTop.classList.toggle('show', window.scrollY > 400);
-      });
-      toTop.addEventListener('click', function () { window.scrollTo({ top: 0, behavior: 'smooth' }); });
-    })();
-  </script>
-  <!-- 悬浮:下单 / 售后 -->
-  <div class="support-fab">
-    <div class="support-panel" id="supportPanel" hidden>
-      <div class="support-head">
-        <b>微信下单 · QQ 售后</b>
-        <button class="support-close" id="supportClose" aria-label="关闭">×</button>
-      </div>
-      <div class="support-qr-grid">
-        <div class="support-qr">
-          <span class="qr-img"><img src="/img/by-qr.png" alt="微信扫码下单二维码" loading="lazy"></span>
-          <b>微信下单</b>
-          <span class="qr-tip">微信扫一扫 · 快捷下单</span>
-        </div>
-        <div class="support-qr">
-          <span class="qr-img"><img src="/img/shouhou-qr.png" alt="QQ 售后好友二维码" loading="lazy"></span>
-          <b>QQ 售后</b>
-          <span class="qr-tip"><a class="support-link" target="_blank" rel="noopener" href="https://qm.qq.com/q/Zh5VGhH3A4">点此加好友</a> 或扫码</span>
-        </div>
-      </div>
-    </div>
-    <button class="support-btn" id="supportBtn" aria-expanded="false" aria-controls="supportPanel">🎫 下单 / 售后</button>
+  <div class="card">
+    <h1>📌 文章已下线</h1>
+    <p>《hashcat 安装以及 WPA/WPA2 破解常用命令笔记》已下线，相关实战内容请看完整教程，正在为您跳转…</p>
+    <a href="/post/35f17806.html">前往完整教程</a>
   </div>
-  <script>
-    (function () {
-      var b = document.getElementById('supportBtn'),
-          p = document.getElementById('supportPanel'),
-          c = document.getElementById('supportClose');
-      function set(open) { p.hidden = !open; b.setAttribute('aria-expanded', open); }
-      b.addEventListener('click', function () { set(p.hidden); });
-      c.addEventListener('click', function () { set(false); });
-      document.addEventListener('click', function (e) {
-        if (!p.hidden && !p.contains(e.target) && !b.contains(e.target)) set(false);
-      });
-      document.addEventListener('keydown', function (e) { if (e.key === 'Escape') set(false); });
-    })();
-  </script>
+  <script>location.replace('/post/35f17806.html');</script>
 </body>
 </html>
